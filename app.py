@@ -1,6 +1,5 @@
-import chainlit as cl
-
 import os
+import chainlit as cl
 huggingfacehub_api_token = os.environ['HUGGINGFACEHUB_API_TOKEN']
 
 from langchain import HuggingFaceHub, PromptTemplate, LLMChain
@@ -18,7 +17,7 @@ You are an artificial intelligence assistant. The assistant gives helpful, detai
 """
 
 
-@cl.langchain_factory
+@cl.langchain_factory(use_async=True)
 def factory():
     prompt = PromptTemplate(template=template, input_variables=["question"])
     llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
