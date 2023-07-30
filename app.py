@@ -21,6 +21,4 @@ You are an artificial intelligence assistant. The assistant gives helpful, detai
 @cl.langchain_factory
 def factory():
     prompt = PromptTemplate(template=template, input_variables=["question"])
-    llm_chain = LLMChain(prompt=prompt, llm=llm, verbose=True)
-
-    return llm_chain
+    return LLMChain(prompt=prompt, llm=llm, verbose=True)
